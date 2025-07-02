@@ -18,38 +18,29 @@ class TestLogin:
         locator.click()
         page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...").first.fill(config.wrong_email)
         page.get_by_placeholder("Insira sua senha...").first.fill(config.wrong_password)
+        page.locator("button.cursor-pointer:nth-child(3)").click()
         time.sleep(2)
     
 
-    # def test_correct_login(self, page: Page):
-    #     page.goto("https://www.embarca.ai")
-    #     locator = page.get_by_text("Entrar", exact=True)
-    #     locator.hover()
-    #     locator.click()
-    #     page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...").first.fill(config.right_email)
-    #     page.get_by_placeholder("Insira sua senha...").first.fill(config.right_password)
-    #     page.locator("div.cursor-pointer:has-text('Login')").click()
-    #     time.sleep(2)
+    def test_correct_login(self, page: Page):
+        page.goto("https://www.embarca.ai")
+        locator = page.get_by_text("Entrar", exact=True)
+        locator.hover()
+        locator.click()
+        page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...").first.fill(config.right_email)
+        page.get_by_placeholder("Insira sua senha...").first.fill(config.right_password)
+        page.locator("button.cursor-pointer:nth-child(3)").click()
+        time.sleep(2)
 
-# def test_search_ticket(page: Page):
-#     page.goto("https://www.embarca.ai")
-#     button = page.locator('#adopt-accept-all-button')
-#     button.click()
-#     locator = page.get_by_text("Entrar", exact=True)
-#     locator.hover()
-#     locator.click()
-#     page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...").first.fill(config.right_email)
-#     page.get_by_placeholder("Insira sua senha...").first.fill(config.right_password)
-#     page.locator("div.cursor-pointer:has-text('Login')").click()
-#     time.sleep(2)
-    # page.locator('id=origin_date').hover()
-    # fill(config.date)
-
-
-
-
-
-
-
-
-
+    def test_search_ticket(self, page: Page):
+        page.goto("https://www.embarca.ai")
+        locator = page.get_by_text("Entrar", exact=True)
+        locator.hover()
+        locator.click()
+        page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...").first.fill(config.right_email)
+        page.get_by_placeholder("Insira sua senha...").first.fill(config.right_password)
+        page.locator("button.cursor-pointer:nth-child(3)").click()
+        time.sleep(2)
+        page.locator('div.border-e:nth-child(1) > div:nth-child(2) > input:nth-child(2)').fill(config.origem)
+        page.locator('li.px-5:nth-child(1)').click() #select first option in list
+        time.sleep(2)
