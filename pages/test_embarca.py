@@ -11,26 +11,26 @@ import pytest
 
 class TestLogin:
 
-    def test_incorrect_login(self, page: Page):
-        page.goto("https://www.embarca.ai")
-        locator = page.get_by_text("Entrar", exact=True)
-        locator.hover()
-        locator.click()
-        page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...").first.fill(config.wrong_email)
-        page.get_by_placeholder("Insira sua senha...").first.fill(config.wrong_password)
-        page.locator("button.cursor-pointer:nth-child(3)").click()
-        time.sleep(2)
+    # def test_incorrect_login(self, page: Page):
+    #     page.goto("https://www.embarca.ai")
+    #     locator = page.get_by_text("Entrar", exact=True)
+    #     locator.hover()
+    #     locator.click()
+    #     page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...").first.fill(config.wrong_email)
+    #     page.get_by_placeholder("Insira sua senha...").first.fill(config.wrong_password)
+    #     page.locator("button.cursor-pointer:nth-child(3)").click()
+    #     time.sleep(2)
     
 
-    def test_correct_login(self, page: Page):
-        page.goto("https://www.embarca.ai")
-        locator = page.get_by_text("Entrar", exact=True)
-        locator.hover()
-        locator.click()
-        page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...").first.fill(config.right_email)
-        page.get_by_placeholder("Insira sua senha...").first.fill(config.right_password)
-        page.locator("button.cursor-pointer:nth-child(3)").click()
-        time.sleep(2)
+    # def test_correct_login(self, page: Page):
+    #     page.goto("https://www.embarca.ai")
+    #     locator = page.get_by_text("Entrar", exact=True)
+    #     locator.hover()
+    #     locator.click()
+    #     page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...").first.fill(config.right_email)
+    #     page.get_by_placeholder("Insira sua senha...").first.fill(config.right_password)
+    #     page.locator("button.cursor-pointer:nth-child(3)").click()
+    #     time.sleep(2)
 
     def test_search_ticket(self, page: Page):
         page.goto("https://www.embarca.ai")

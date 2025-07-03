@@ -8,6 +8,13 @@ import pytest
 def test_correct_login(page):
     login_page = LoginPage(page)
     login_page.goto("https://embarca.ai")
+    login_page.login(config.right_email , config.right_password)
     time.sleep(2)
-    login_page.login(right_email , right_password)
+
+def test_error_login(page):
+    login_page = LoginPage(page)
+    login_page.goto("https://embarca.ai")
+    time.sleep(2)
+    login_page.login(config.wrong_email , config.wrong_password)
+    time.sleep(2)    
 

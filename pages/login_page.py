@@ -1,6 +1,7 @@
 class LoginPage:
     def __init__(self, page):
         self.page = page
+        self.entrar_button = page.get_by_text("Entrar", exact=True)
         self.email_input = page.get_by_placeholder("Insira aqui seu e-mail, CPF ou CNPJ...")
         self.password_input = page.get_by_placeholder("Insira sua senha...")
         self.login_button = page.locator("button.cursor-pointer:nth-child(3)")
@@ -10,6 +11,8 @@ class LoginPage:
         self.page.goto(url)
 
     def login(self, email, password):
+        self.entrar_button.click()
         self.email_input.first.fill(email)
         self.password_input.first.fill(password)
-        self.login_button.click()       
+        self.login_button.click()
+
