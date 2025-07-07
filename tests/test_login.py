@@ -18,3 +18,9 @@ def test_error_login(page):
     login_page.login(config.wrong_email , config.wrong_password)
     time.sleep(2)    
 
+def test_logout(page):
+    login_page = LoginPage(page)
+    login_page.goto("https://embarca.ai")
+    login_page.login(config.right_email , config.right_password)
+    login_page.logout()
+    time.sleep(2)
