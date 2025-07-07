@@ -6,6 +6,7 @@ class SearchPage:
         self.destino = page.locator('div.border-e:nth-child(2) > div:nth-child(2) > input:nth-child(2)')
         self.first_destino = page.locator('div.absolute:nth-child(3) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(1)')
         self.buscar_button = page.get_by_text("Buscar", exact=True)
+        self.first_select_button = page.get_by_text("Selecionar").nth(2)
 
 
     def goto(self, url):
@@ -18,4 +19,5 @@ class SearchPage:
         self.first_destino.click()
         self.buscar_button.click()
 
-    
+    def select_ticket(self):
+        self.first_select_button.click()

@@ -20,7 +20,6 @@ class LoginPage:
 
     def logout(self):
         self.exit_button.click()
-        # Click the confirmation button in the modal
         self.confirm_exit_button.click()
             
 

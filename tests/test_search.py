@@ -9,4 +9,6 @@ def test_search_ticket(page):
     search_page = SearchPage(page)
     search_page.goto("https://embarca.ai")
     search_page.search(config.origem, config.destino)
-    time.sleep(2)
+    time.sleep(8)
+    search_page.select_ticket()
+    time.sleep(10)
